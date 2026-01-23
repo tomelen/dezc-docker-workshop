@@ -1,5 +1,8 @@
 # dezc-docker-workshop
-# Docker Codespaces
+## Bash Commands
+* `pwd` Prints the present working directory.
+* `which python` Prints python version in the Codespace.
+
 
 ## Run Container and Map Volume
 ```bash
@@ -25,3 +28,8 @@ docker run -it \
 * `docker rm $(docker ps -aq)` Remove all containers. 
 * `docker stop $() and docker kill $()` can be used to stop or kill.
 
+## Using `uv` in CodeSpace Container
+* `pip install uv` Installs uv.
+* `uv run which python` Python path in virtual environment.
+* `uv run python -V` Python version from venv.  
+**_uv run uses the isolated environment._**
