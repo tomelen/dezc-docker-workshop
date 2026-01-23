@@ -22,14 +22,20 @@ docker run -it \
 * `--entrypoint` is useful.
 
 ## Docker Commands
-
+* `docker ps` Lists running containers.
 * `docker ps -a` Lists all containers including stopped ones.
 * `docker ps -aq` Only display container IDs
 * `docker rm $(docker ps -aq)` Remove all containers. 
 * `docker stop $() and docker kill $()` can be used to stop or kill.
 
+### Docker Images
+* `docker build -t test:pandas` Build the image as `<name>:<tag>`.
+* `docker images` Lists the images.
+* `docker ps` See the running container.
+
 ## Using `uv` in CodeSpace Container
 * `pip install uv` Installs uv.
+* `uv add pandas pyarrow` Adds packages to venv and updates `pyproject.toml`.
+* `uv run <>` Run the command in the isolated environment.
 * `uv run which python` Python path in virtual environment.
 * `uv run python -V` Python version from venv.  
-**_uv run uses the isolated environment._**
