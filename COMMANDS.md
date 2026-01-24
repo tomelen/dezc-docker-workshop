@@ -1,6 +1,7 @@
 # dezc-docker-workshop
 ## Bash Commands
 * `pwd` Prints the present working directory.
+* `cat ~/.bashrc` Prints the content of `.bashrc` file
 * `which python` Prints python version in the Codespace.
 
 
