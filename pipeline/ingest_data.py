@@ -59,7 +59,8 @@ def run(pg_user, pg_pass, pg_host, pg_port, pg_db, target_table):
     df.shape
 
 
-    engine = create_engine('postgresql://root:root@localhost:5432/ny_taxi')
+    #engine = create_engine('postgresql://root:root@localhost:5432/ny_taxi')
+    engine = create_engine(f'postgresql://{pg_user}:{pg_pass}@{pg_host}:{pg_port}/{pg_db}')
 
     print(pd.io.sql.get_schema(df, name='yellow_taxi_data', con=engine))
 
@@ -80,17 +81,17 @@ def run(pg_user, pg_pass, pg_host, pg_port, pg_db, target_table):
         if first:
             # Create table schema (no data)
             df_chunk.head(0).to_sql(
-                name="yellow_taxi_data",
+                name=target_table,
                 con=engine,
                 if_exists="replace"
             )
             first = False
-            print("Table created")
+            print(f"Table {target_table} created")
 
         # Insert chunk
         df_chunk.to_sql(
-            name="yellow_taxi_data",
-            con=engine,
+            name=target_table, 
+            con=engine, 
             if_exists="append"
         )
 
