@@ -63,3 +63,9 @@ docker run -it --rm \
   ### PostGres Commands
   * `\dt` Lists tables.
   * `\q` Exit.
+
+  ### Jupyter Notebook
+  * `uv add --dev jupyter` Install Jupyter
+  * `uv run jupyter notebook` Run Jupyter Notebook
+
+  
