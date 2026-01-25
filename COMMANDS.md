@@ -68,4 +68,13 @@ docker run -it --rm \
   * `uv add --dev jupyter` Install Jupyter
   * `uv run jupyter notebook` Run Jupyter Notebook
 
-  
+  ### Ingest with Click
+  ```bash
+  uv run python ingest_data.py \
+  --pg-user=root \
+  --pg-pass=root \
+  --pg-host=localhost \
+  --pg-port=5432 \
+  --pg-db=ny_taxi \
+  --target-table=yellow_taxi_trips
+  ```
