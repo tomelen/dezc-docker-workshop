@@ -30,6 +30,11 @@ docker run -it \
 * `docker rm $(docker ps -aq)` Remove all containers. 
 * `docker stop $() and docker kill $()` can be used to stop or kill.
 * `docker volume ls` Lists the volumes.
+* `docker-compose up` Run containers in foreground.
+* `docker-compose up -d` Run in background.
+* `docker-compose down` Stop containers.
+* `docker-compose` logs
+* `docker-compose down -v`
 
 ### Docker Images
 * `docker build -t test:pandas` Build the image as `<name>:<tag>`.
@@ -139,3 +144,19 @@ docker run -it --rm \
         --pg-db=ny_taxi \
         --target-table=yellow_taxi_trips
     ```
+
+## Run Ingestion Script with Docker Compose
+1. Verify the network name.  
+   `docker network ls`
+
+2. Run the ingestion script.
+    ```bash
+    docker run -it --rm \
+        --network=pipeline_default \
+        taxi_ingest:v001 \
+        --pg-user=root \
+        --pg-pass=root \
+        --pg-host=pgdatabase \
+        --pg-port=5432 \
+        --pg-db=ny_taxi \
+        --target-table=yellow_taxi_trips
