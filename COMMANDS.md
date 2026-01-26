@@ -98,6 +98,11 @@ docker run -it --rm \
   ### Jupyter Notebook
   * `uv add --dev jupyter` Install Jupyter
   * `uv run jupyter notebook` Run Jupyter Notebook
+  * Convert Jupyter Notebook to Script
+    ```bash
+    uv run jupyter nbconvert --to=script notebook.ipynb
+    mv notebook.py ingest_data.py
+    ```
 
   ### Ingest with Click
   ```bash
